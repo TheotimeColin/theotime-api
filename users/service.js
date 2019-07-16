@@ -19,6 +19,16 @@ async function authenticate ({ username, password }) {
     }
 }
 
+async function getAll () {
+    return {
+        users: users.map(user => {
+            delete user.password
+            return user
+        })
+    }
+}
+
 module.exports = {
-    authenticate
+    authenticate,
+    getAll
 }
